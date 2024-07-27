@@ -32,15 +32,29 @@ class ProgectLavel:
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.KEYUP:
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_DOWN and self.y < 500:
-                        self.y += self.speed
-                    if event.key == pygame.K_UP and self.y > 0:
-                        self.y -= self.speed
-                    elif event.key == pygame.K_RIGHT and self.x < 700:
-                        self.x += self.speed
-                    elif event.key == pygame.K_LEFT and self.x > 0:
-                        self.x -= self.speed
+                if event.key == pygame.K_DOWN and self.y < 500:
+                    self.y += self.speed
+                if event.key == pygame.K_UP and self.y > 0:
+                    self.y -= self.speed
+                elif event.key == pygame.K_RIGHT and self.x < 700:
+                    self.x += self.speed
+                elif event.key == pygame.K_LEFT and self.x > 0:
+                    self.x -= self.speed
+            else:
+                while True:
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_DOWN and self.y < 500:
+                            self.y += self.speed
+                        if event.key == pygame.K_UP and self.y > 0:
+                            self.y -= self.speed
+                        elif event.key == pygame.K_RIGHT and self.x < 700:
+                            self.x += self.speed
+                        elif event.key == pygame.K_LEFT and self.x > 0:
+                            self.x -= self.speed
+                    
+            
+
+        
                 
 
                 
@@ -49,14 +63,14 @@ class ProgectLavel:
     # /////////////////////////////////////////////////////////////// КОНЕЦ "RUN_GAME" //////////////////////////////////////////
 
     def _update_screen(self):
-        """ОТРИСОВКА ЭКРАНА"""
-        self.screen.fill(self.bgcolor)
+            """ОТРИСОВКА ЭКРАНА"""
+            self.screen.fill(self.bgcolor)
         # Отображение полследнего прорисованого экрана
         # self.rect.x = self.rect.x + 1
-        self.rectCeate()
+            self.rectCeate()
 
-        pygame.display.flip()
-        self.clock.tick(60)  # limits FPS to 60
+            pygame.display.flip()
+            self.clock.tick(60)  # limits FPS to 60
 
     def rectCeate(self): 
         self.rect = pygame.draw.rect(self.screen, (255, 0, 0), ( self.x, self.y, self.box_width, self.box_height))
