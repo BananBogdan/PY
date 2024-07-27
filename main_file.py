@@ -25,27 +25,23 @@ class ProgectLavel:
         self.box_right = False
         self.box_left = False
 
+    def _move_box(self):
+        if self.box_up == True and self.y > 0:
+            self.y -= self.speed
+        if self.box_down == True and self.y < 500:
+            self.y += self.speed
+        if self.box_right == True and self.x < 700:
+            self.x += self.speed
+        if self.box_left == True and self.x > 0:
+            self.x -= self.speed
+
+
+
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
         while True:
             self._check_events()
-
-
-            if self.box_up == True:
-                pygame.K_UP and self.y > 0
-                self.y -= self.speed
-            if self.box_down == True:
-                pygame.K_DOWN and self.y < 500
-                self.y += self.speed
-            if self.box_right == True:
-                pygame.K_RIGHT and self.x < 700
-                self.x += self.speed
-            if self.box_left == True:
-                pygame.K_LEFT and self.x > 0
-                self.x -= self.speed
-
-
-                
+            self._move_box()
             self._update_screen()
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
