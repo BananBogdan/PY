@@ -53,3 +53,5 @@ if __name__ == "__main__":
     # Создание экземпляра и запуск игры
     pg_game = ProgectLavel()
     pg_game.run_game()
+
+    # ///////////////////
