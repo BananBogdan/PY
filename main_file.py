@@ -13,7 +13,7 @@ class ProgectLavel:
         self.speed = 20
         self.box_width = 100
         self.box_height = 100
-        self.screen = pygame.display.set_mode((self.width,self.height ))  # РАСШИРЕНИЕ
+        self.screen = pygame.display.set_mode((self.width, self.height))  # РАСШИРЕНИЕ
         self.screen_rect = self.screen.get_rect()
         pygame.mouse.set_visible(False)
 
@@ -25,24 +25,27 @@ class ProgectLavel:
         self.box_right = False
         self.box_left = False
 
-
-
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
         while True:
             self._check_events()
+
+
             if self.box_up == True:
                 pygame.K_UP and self.y > 0
                 self.y -= self.speed
             if self.box_down == True:
                 pygame.K_DOWN and self.y < 500
-                self.y += self.speed 
+                self.y += self.speed
             if self.box_right == True:
                 pygame.K_RIGHT and self.x < 700
                 self.x += self.speed
             if self.box_left == True:
                 pygame.K_LEFT and self.x > 0
                 self.x -= self.speed
+
+
+                
             self._update_screen()
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
@@ -54,45 +57,40 @@ class ProgectLavel:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    self.box_up == True
+                    self.box_up = True
                 if event.key == pygame.K_DOWN:
-                   self.box_down == True
+                    self.box_down = True
                 if event.key == pygame.K_RIGHT:
-                   self.box_right == True
+                    self.box_right = True
                 if event.key == pygame.K_LEFT:
-                   self.box_left == True
+                    self.box_left = True
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
-                    self.box_up == False
+                    self.box_up = False
                 if event.key == pygame.K_DOWN:
-                   self.box_down == False
+                    self.box_down = False
                 if event.key == pygame.K_RIGHT:
-                   self.box_right == False
+                    self.box_right = False
                 if event.key == pygame.K_LEFT:
-                   self.box_left == False
-                    
-            
-
-        
-                
-
-                
+                    self.box_left = False
 
     # ================= //НАЖАТИЕ КНОПКИ// ============================
     # /////////////////////////////////////////////////////////////// КОНЕЦ "RUN_GAME" //////////////////////////////////////////
 
     def _update_screen(self):
-            """ОТРИСОВКА ЭКРАНА"""
-            self.screen.fill(self.bgcolor)
+        """ОТРИСОВКА ЭКРАНА"""
+        self.screen.fill(self.bgcolor)
         # Отображение полследнего прорисованого экрана
         # self.rect.x = self.rect.x + 1
-            self.rectCeate()
+        self.rectCeate()
 
-            pygame.display.flip()
-            self.clock.tick(60)  # limits FPS to 60
+        pygame.display.flip()
+        self.clock.tick(60)  # limits FPS to 60
 
-    def rectCeate(self): 
-        self.rect = pygame.draw.rect(self.screen, (255, 0, 0), ( self.x, self.y, self.box_width, self.box_height))
+    def rectCeate(self):
+        self.rect = pygame.draw.rect(
+            self.screen, (255, 0, 0), (self.x, self.y, self.box_width, self.box_height)
+        )
 
 
 if __name__ == "__main__":
