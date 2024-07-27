@@ -25,15 +25,7 @@ class ProgectLavel:
         self.box_right = False
         self.box_left = False
 
-    def _move_box(self):
-        if self.box_up == True and self.y > 0:
-            self.y -= self.speed
-        if self.box_down == True and self.y < 500:
-            self.y += self.speed
-        if self.box_right == True and self.x < 700:
-            self.x += self.speed
-        if self.box_left == True and self.x > 0:
-            self.x -= self.speed
+    
 
 
 
@@ -43,6 +35,16 @@ class ProgectLavel:
             self._check_events()
             self._move_box()
             self._update_screen()
+            
+    def _move_box(self):
+            if self.box_up == True and self.y > 0:
+                self.y -= self.speed
+            if self.box_down == True and self.y < 500:
+                self.y += self.speed
+            if self.box_right == True and self.x < 700:
+                self.x += self.speed
+            if self.box_left == True and self.x > 0:
+                self.x -= self.speed
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
     # ================= ИВЕНТЫ КНОПКИ ============================
@@ -52,22 +54,22 @@ class ProgectLavel:
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
                     self.box_up = True
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     self.box_down = True
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     self.box_right = True
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     self.box_left = True
             if event.type == pygame.KEYUP:
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
                     self.box_up = False
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     self.box_down = False
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     self.box_right = False
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     self.box_left = False
 
     # ================= //НАЖАТИЕ КНОПКИ// ============================
