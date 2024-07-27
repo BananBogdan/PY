@@ -20,10 +20,24 @@ class ProgectLavel:
         self.x = self.width / 2
         self.y = self.height / 2
 
+        self.box_up = False
+        self.box_down = False
+        self.box_right = False
+        self.box_left = False
+
+
+
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
         while True:
             self._check_events()
+            if self.box_up == True:
+                
+                
+
+
+
+
             self._update_screen()
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
@@ -33,7 +47,7 @@ class ProgectLavel:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            if event.type == pygame.KEYUP:
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_DOWN and self.y < 500:
                     self.y += self.speed
                 if event.key == pygame.K_UP and self.y > 0:
@@ -42,17 +56,6 @@ class ProgectLavel:
                     self.x += self.speed
                 elif event.key == pygame.K_LEFT and self.x > 0:
                     self.x -= self.speed
-            else:
-                while True:
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_DOWN and self.y < 500:
-                            self.y += self.speed
-                        if event.key == pygame.K_UP and self.y > 0:
-                            self.y -= self.speed
-                        elif event.key == pygame.K_RIGHT and self.x < 700:
-                            self.x += self.speed
-                        elif event.key == pygame.K_LEFT and self.x > 0:
-                            self.x -= self.speed
                     
             
 
