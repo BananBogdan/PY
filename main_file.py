@@ -1,6 +1,8 @@
 import pygame
 import sys
 
+# сделаю вкусно, недорого (#_<-)
+
 
 class ProgectLavel:
     def __init__(self):
