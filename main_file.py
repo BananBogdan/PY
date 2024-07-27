@@ -53,22 +53,22 @@ class ProgectLavel:
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP and self.y > 0:
+                if event.key == pygame.K_UP:
                     self.box_up == True
-                if self.box_down == False:
+                if event.key == pygame.K_DOWN:
                    self.box_down == True
-                if self.box_right == False:
+                if event.key == pygame.K_RIGHT:
                    self.box_right == True
-                if self.box_left == False:
+                if event.key == pygame.K_LEFT:
                    self.box_left == True
             if event.type == pygame.KEYUP:
-                if self.box_up == True:
-                   self.box_up == False
-                if self.box_down == True:
+                if event.key == pygame.K_UP:
+                    self.box_up == False
+                if event.key == pygame.K_DOWN:
                    self.box_down == False
-                if self.box_right == True:
+                if event.key == pygame.K_RIGHT:
                    self.box_right == False
-                if self.box_left == True:
+                if event.key == pygame.K_LEFT:
                    self.box_left == False
                     
             
