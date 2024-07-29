@@ -25,9 +25,6 @@ class ProgectLavel:
         self.box_right = False
         self.box_left = False
 
-    
-
-
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
@@ -39,7 +36,7 @@ class ProgectLavel:
     def _move_box(self):
             if self.box_up == True and self.y > 0:
                 self.y -= self.speed
-            if self.box_down == True and self.y < 500:
+            if self.box_down == True and self.y < 500: # ИСПРАВЬ ПОПИЧЬ
                 self.y += self.speed
             if self.box_right == True and self.x < 700:
                 self.x += self.speed
@@ -78,10 +75,7 @@ class ProgectLavel:
     def _update_screen(self):
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
-        # Отображение полследнего прорисованого экрана
-        # self.rect.x = self.rect.x + 1
         self.rectCeate()
-
         pygame.display.flip()
         self.clock.tick(60)  # limits FPS to 60
 
