@@ -5,10 +5,15 @@ from box import *
 
 class ProgectLavel:
     def __init__(self):
+        pygame.init()
+
         self.bgcolor = (50, 50, 50)
         self.clock = pygame.time.Clock()
-        self.width = 800
-        self.height = 600
+        info = pygame.display.Info()
+
+        self.width = info.current_w
+        self.height = info.current_h
+
         self.screen = pygame.display.set_mode((self.width, self.height))  # РАСШИРЕНИЕ
         self.screen_rect = self.screen.get_rect()
         pygame.mouse.set_visible(False)
@@ -26,7 +31,7 @@ class ProgectLavel:
         ]
 
         self.image = pygame.image.load("img.jpg")
-        self.image = pygame.transform.scale(self.image, (800, 600))
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.image_rect = self.image.get_rect()
 
     def run_game(self):
