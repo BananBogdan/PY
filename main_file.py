@@ -13,8 +13,11 @@ class ProgectLavel:
         self.screen_rect = self.screen.get_rect()
         pygame.mouse.set_visible(False)
 
-        # self.x = self.width / 2 - ( self.box_width / 2)
-        # self.y = self.height / 2 - ( self.box_height / 2 )
+
+        # info = pygame.display.Info()
+
+        # self.screen_width = info.current_w
+        # self.screen_height = info.current_h
 
         self.box_arr = [
             Box(self.screen, self.width, self.height, (255, 0, 0), 20),
