@@ -1,6 +1,10 @@
 import pygame
 import sys
 
+
+            
+     
+
 class Box:
     def __init__(self,screen,width,height,color,speed):
 
@@ -20,6 +24,10 @@ class Box:
 
         self.x = ( 800 / 2 ) - ( self.width / 2) 
         self.y = ( 600 / 2 ) - ( self.height / 2 )
+
+    def test(self):
+        print('Test')
+
 
 
 
@@ -60,6 +68,12 @@ class ProgectLavel:
         self.box_g = Box(self.screen,self.width,self.height,(0, 255, 0), 10)
 
 
+        box_create = [ 
+            Box(self.screen,self.width,self.height,(255, 0, 0), 20), 
+            Box(self.screen,self.width,self.height,(0, 255, 0), 10)
+            ]
+
+        for box_create in 
 
 
     def run_game(self):
