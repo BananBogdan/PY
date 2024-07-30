@@ -64,24 +64,20 @@ class ProgectLavel:
         #self.x = self.width / 2 - ( self.box_width / 2) 
         #self.y = self.height / 2 - ( self.box_height / 2 )
 
-        self.box_r = Box(self.screen,self.width,self.height,(255, 0, 0), 20)
-        self.box_g = Box(self.screen,self.width,self.height,(0, 255, 0), 10)
 
-
-        box_create = [ 
+        self.box_arr = [ 
             Box(self.screen,self.width,self.height,(255, 0, 0), 20), 
-            Box(self.screen,self.width,self.height,(0, 255, 0), 10)
+            Box(self.screen,self.width,self.height,(0, 255, 0), 10),
+            Box(self.screen,self.width,self.height,(0, 0, 255), 15)
             ]
-
-        for box_create in 
 
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
         while True:
             self._check_events()
-            self.box_r.move_box()
-            self.box_g.move_box()
+            for box in self.box_arr:
+                box.move_box()
             self._update_screen()
             
 
@@ -94,30 +90,30 @@ class ProgectLavel:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
-                    self.box_g.box_up = True
-                    self.box_r.box_up = True
+                    for box in self.box_arr:    
+                        box.box_up = True
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                    self.box_g.box_down = True
-                    self.box_r.box_down = True
+                    for box in self.box_arr:
+                        box.box_down = True
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    self.box_g.box_right = True
-                    self.box_r.box_right = True
+                    for box in self.box_arr:
+                        box.box_right = True
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                    self.box_g.box_left = True
-                    self.box_r.box_left = True
+                    for box in self.box_arr:
+                        box.box_left = True
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
-                    self.box_g.box_up = False
-                    self.box_r.box_up = False
+                   for box in self.box_arr:
+                        box.box_up = False
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                    self.box_g.box_down = False
-                    self.box_r.box_down = False
+                    for box in self.box_arr:
+                        box.box_down = False
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    self.box_g.box_right = False
-                    self.box_r.box_right = False
+                    for box in self.box_arr:
+                        box.box_right = False
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                    self.box_g.box_left = False
-                    self.box_r.box_left = False
+                    for box in self.box_arr:
+                        box.box_left = False
 
     # ================= //НАЖАТИЕ КНОПКИ// ============================
     # /////////////////////////////////////////////////////////////// КОНЕЦ "RUN_GAME" //////////////////////////////////////////
@@ -125,8 +121,8 @@ class ProgectLavel:
     def _update_screen(self):
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
-        self.box_g.rectCeate()
-        self.box_r.rectCeate()
+        for box in self.box_arr:
+            box.rectCeate()
         pygame.display.flip()
         self.clock.tick(60)  # limits FPS to 60
 
