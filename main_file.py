@@ -21,8 +21,6 @@ class ProgectLavel:
 
         # info = pygame.display.Info()
 
-        # self.screen_width = info.current_w
-        # self.screen_height = info.current_h
 
         self.box_arr = [
             Box(self.screen, self.width, self.height, (255, 0, 0), 20),
@@ -30,9 +28,14 @@ class ProgectLavel:
             Box(self.screen, self.width, self.height, (0, 0, 255), 15),
         ]
 
-        self.image = pygame.image.load("img.jpg")
+        self.image = pygame.image.load("t2x2/0.gif")
+        self.image_2 = pygame.image.load("t2x2/117.gif")
+        
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
         self.image_rect = self.image.get_rect()
+
+        self.image_2 = pygame.transform.scale(self.image, (self.width, self.height))
+        self.image_rect_2 = self.image.get_rect()
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
@@ -41,6 +44,9 @@ class ProgectLavel:
             for box in self.box_arr:
                 box.move_box()
             self._update_screen()
+            self.screen.blit(self.image, self.image_rect)
+            self.screen.blit(self.image_2, self.image_rect_2)
+            
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
     # ================= ИВЕНТЫ КНОПКИ ============================
@@ -83,6 +89,7 @@ class ProgectLavel:
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
         self.screen.blit(self.image, self.image_rect)
+        self.screen.blit(self.image_2, self.image_rect_2)
         for box in self.box_arr:
             box.rectCeate()
         pygame.display.flip()
