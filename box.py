@@ -10,7 +10,7 @@ class Box:
         self.screen_width = width
         self.screen_height = height
 
-        self.width = 100
+        self.width = 400
         self.height = 100
 
         self.box_up = False

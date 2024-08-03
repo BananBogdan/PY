@@ -24,19 +24,20 @@ class ProgectLavel:
 
         self.box_arr = [
             Box(self.screen, self.width, self.height, (255, 0, 0), 20),
-            Box(self.screen, self.width, self.height, (0, 255, 0), 10),
-            Box(self.screen, self.width, self.height, (0, 0, 255), 15),
+            # Box(self.screen, self.width, self.height, (0, 255, 0), 10),
+            # Box(self.screen, self.width, self.height, (0, 0, 255), 15),
         ]
 
         self.images = []
         for i in range(0,118):
-
             self.image = pygame.image.load(f"t2x2/{i}.gif")
-            self.image = pygame.transform.scale(self.image, (self.width, self.height))
+            self.image = pygame.transform.scale(self.image, (self.box_arr[0].width, self.box_arr[0].height ))
             self.images.append(self.image)
         self.image_rect = self.image.get_rect()
 
         self.loop = 0
+        print(self.box_arr[0].x)
+        print(self.box_arr[0].y)
 
 
 
@@ -91,14 +92,18 @@ class ProgectLavel:
     def _update_screen(self):
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
+
+
+        self.image_rect.x = self.box_arr[0].x
+        self.image_rect.y = self.box_arr[0].y
         self.screen.blit(self.images[self.loop], self.image_rect)
 
         self.loop += 1
         if self.loop >= 117:
             self.loop = 0
 
-        for box in self.box_arr:
-            box.rectCeate()
+        # for box in self.box_arr:
+        #     box.rectCeate()
         pygame.display.flip()
         self.clock.tick(60)  # limits FPS to 60
 
