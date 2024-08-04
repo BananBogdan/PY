@@ -23,7 +23,7 @@ class ProgectLavel:
         pygame.mouse.set_visible(False)
 
         self.box_arr = [
-            Box(self.screen, self.width, self.height, (255, 0, 0), 20),
+            Box(self.screen, self.width, self.height, 20),
             # Box(self.screen, self.width, self.height, (0, 255, 0), 10),
             # Box(self.screen, self.width, self.height, (0, 0, 255), 15),
         ]
@@ -49,6 +49,8 @@ class ProgectLavel:
             if event.type == pygame.QUIT:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    sys.exit()
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.box_arr:
                         box.box_up = True
@@ -82,8 +84,8 @@ class ProgectLavel:
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
 
-        # for box in self.box_arr:
-        #     box.rectCeate()
+        for box in self.box_arr:
+            box.rectCeate()
         pygame.display.flip()
         self.clock.tick(60)  # limits FPS to 60
 

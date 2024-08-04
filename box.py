@@ -4,47 +4,44 @@ from image import *
 
 
 class Box:
-    def __init__(self, screen, width, height, color, speed):
+    def __init__(self, screen, width, height, speed):
 
         Image()
         self.speed = speed
-        self.color = color  # KAKI!!!!!!!!!!!!!!!!
         self.screen = screen
         self.screen_width = width
         self.screen_height = height
-
-        self.width = 400
-        self.height = 100
 
         self.box_up = False
         self.box_down = False
         self.box_right = False
         self.box_left = False
 
-        self.x = (self.screen_width / 2) - (self.width / 2)
-        self.y = (self.screen_height / 2) - (self.height / 2)
+        self.image = Image()
 
-        self.image = pygame.transform.scale(self.image, (self.box_arr[0].width, self.box_arr[0].height ))
-        self.image_rect.x = self.image.get_rect()
-        self.image_rect.y = self.image.get_rect()
+        #self.image = pygame.transform.scale(self.image, (self.box_arr[0].width, self.box_arr[0].height ))
 
-        self.image_rect.x = self.box_arr[0].x
-        self.image_rect.y = self.box_arr[0].y
+        self.rect = self.image.images[0].get_rect()
+
+        self.rect.x = (self.screen_width / 2) - (self.rect.width / 2)
+        self.rect.y = (self.screen_height / 2) - (self.rect.height / 2)
+
+
         
 
     def move_box(self):
-        if self.box_up == True and self.y > 0:
-            self.image_rect.y -= self.speed
-        if self.box_down == True and self.y < self.screen_height - self.height:
-            self.image_rect.y += self.speed
-        if self.box_right == True and self.x < self.screen_width - self.width:
-            self.image_rect.x += self.speed
-        if self.box_left == True and self.x > 0:
-            self.image_rect.x -= self.speed
+        if self.box_up == True and self.rect.y > 0:
+            self.rect.y -= self.speed
+        if self.box_down == True and self.rect.y < self.screen_height - self.rect.height:
+            self.rect.y += self.speed
+        if self.box_right == True and self.rect.x < self.screen_width - self.rect.width:
+            self.rect.x += self.speed
+        if self.box_left == True and self.rect.x > 0:
+            self.rect.x -= self.speed
 
 
     def rectCeate(self):
-         self.screen.blit(self.image, self.image_rect)
+         self.screen.blit(self.image.get(), self.rect)
     
 
 
