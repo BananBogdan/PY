@@ -1,11 +1,12 @@
 import pygame
 import sys
+from image import *
 
 
 class Box:
     def __init__(self, screen, width, height, color, speed):
         self.speed = speed
-        self.color = color
+        self.color = color  # KAKI!!!!!!!!!!!!!!!!
         self.screen = screen
         self.screen_width = width
         self.screen_height = height
@@ -32,7 +33,7 @@ class Box:
             self.x -= self.speed
 
     def rectCeate(self):
-        self.rect = pygame.draw.rect(
+        self.rect = pygame.draw.rect(   # KAKI!!!!!!!!!!!!!!!!  отрисовка не draw, а blit
             self.screen, self.color, (self.x, self.y, self.width, self.height)
         )
 
