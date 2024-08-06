@@ -10,7 +10,7 @@ from cart import *
 
 
 class ProgectLavel:
-    def __init__(self,image,rect):
+    def __init__(self):
         pygame.init()
 
         self.bgcolor = (50, 50, 50)
@@ -33,8 +33,6 @@ class ProgectLavel:
 
         # info = pygame.display.Info()
 
-        self.image = image
-        self.rect = rect
 
 
     def run_game(self):
@@ -57,7 +55,7 @@ class ProgectLavel:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit()
                 if event.key == pygame.K_SPACE:
-                    self.rect.x += 100
+                    self.cart_arr[0].blit() and self. += 100
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.box_arr:
                         box.box_up = True
@@ -92,10 +90,10 @@ class ProgectLavel:
         self.screen.fill(self.bgcolor)
 
         self.cart_arr = [
-            Cart(self.image,self.rect, self.screen.blit, self.rect.y, self.rect.x)
+            Cart(self.height,self.screen)
         ]
 
-       
+        self.cart_arr[0].blit()
 
         for box in self.box_arr:
             box.rectCeate()
