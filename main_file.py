@@ -1,9 +1,11 @@
 import pygame
 import sys
 from box import *
+from image import *
+from cart import *
 
-# [ ] - Сделать класс image - отрисовка анимаций  и прогрузка катинок
-# [ ] - Отресовка картинок в Box через blit
+# [x] - Сделать класс image - отрисовка анимаций  и прогрузка катинок
+# [x] - Отресовка картинок в Box через blit
 
 
 
@@ -23,8 +25,8 @@ class ProgectLavel:
         pygame.mouse.set_visible(False)
 
         self.box_arr = [
-            Box(self.screen, self.width, self.height, 20),
-            # Box(self.screen, self.width, self.height, (0, 255, 0), 10),
+            # Box(self.screen, self.width, self.height, 20),
+            # Box(self.screen, self.width, self.height, 10),
             # Box(self.screen, self.width, self.height, (0, 0, 255), 15),
         ]
 
@@ -83,6 +85,12 @@ class ProgectLavel:
     def _update_screen(self):
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
+
+        self.cart_arr = [
+            Cart(self.rect, self.rect.y, self.rect.x)
+        ]
+
+       
 
         for box in self.box_arr:
             box.rectCeate()

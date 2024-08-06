@@ -3,17 +3,16 @@ import sys
 
 
 class Image:
-    def __init__(self) -> None:
-
+    def __init__(self, path) -> None:
         self.images = []
-        for i in range(0,118):
-            self.image = pygame.image.load(f"t2x2/{i}.gif")
-            self.images.append(self.image)
+        self.image = pygame.image.load(f"{path}/{1}.gif")
+        self.images.append(self.image)
+        # for i in range(0):
 
-        self.loop = 0
+        # self.loop = 0
 
     def get(self):
-        self.loop += 1           
-        if self.loop >= 117:
-            self.loop = 0
-        return self.images[self.loop]
+        # self.loop += 1           
+        # if self.loop >= 117:
+        #     self.loop = 0
+        return self.images[0]

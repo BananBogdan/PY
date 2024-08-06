@@ -6,7 +6,6 @@ from image import *
 class Box:
     def __init__(self, screen, width, height, speed):
 
-        Image()
         self.speed = speed
         self.screen = screen
         self.screen_width = width
@@ -17,7 +16,7 @@ class Box:
         self.box_right = False
         self.box_left = False
 
-        self.image = Image()
+        self.image = Image('t2x2')
 
         #self.image = pygame.transform.scale(self.image, (self.box_arr[0].width, self.box_arr[0].height ))
 
