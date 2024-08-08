@@ -31,6 +31,11 @@ class ProgectLavel:
         ]
 
 
+        self.cart_arr = [
+            Cart(self.height,self.screen)
+        ]
+
+
         # info = pygame.display.Info()
 
 
@@ -55,8 +60,10 @@ class ProgectLavel:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit()
                 if event.key == pygame.K_SPACE:
-                    self.cart_arr[0].blit()
-                    self.rect.x += 100 
+                    for cart in self.cart_arr:
+                        cart.rect.x += 200
+                        self.cart_arr.append(Cart(self.height,self.screen))
+
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.box_arr:
                         box.box_up = True
@@ -89,10 +96,6 @@ class ProgectLavel:
     def _update_screen(self):
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
-
-        self.cart_arr = [
-            Cart(self.height,self.screen)
-        ]
 
         self.cart_arr[0].blit()
 
