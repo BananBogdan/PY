@@ -55,7 +55,8 @@ class ProgectLavel:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit()
                 if event.key == pygame.K_SPACE:
-                    self.cart_arr[0].blit() and self. += 100
+                    self.cart_arr[0].blit()
+                    self.rect.x += 100 
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.box_arr:
                         box.box_up = True

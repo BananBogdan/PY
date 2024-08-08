@@ -3,7 +3,8 @@ import sys
 from image import *
 
 class Cart:
-    def __init__(self,height,screen):
+    def __init__(self,height,screen,rect):
+        self.rect = rect
         self.height = height
         self.screen = screen
         self.image = Image('cart').get()
