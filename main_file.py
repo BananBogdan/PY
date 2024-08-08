@@ -64,8 +64,7 @@ class ProgectLavel:
                         cart.rect.x += 200
                     self.cart_arr.append(Cart(self.height,self.screen))
                 if event.key == pygame.K_BACKSPACE:
-                    for cart in self.cart_arr:
-                        self.cart_arr.pop(cart[0])
+                        self.cart_arr.pop(0)
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.box_arr:
                         box.box_up = True
