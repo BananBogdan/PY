@@ -1,12 +1,10 @@
 import pygame
 import sys
-from box import *
 from image import *
-from cart import *
+from box import *
 
 # [x] - Сделать класс image - отрисовка анимаций  и прогрузка катинок
 # [x] - Отресовка картинок в Box через blit
-
 
 
 class ProgectLavel:
@@ -24,30 +22,28 @@ class ProgectLavel:
         self.screen_rect = self.screen.get_rect()
         pygame.mouse.set_visible(False)
 
-        self.box_arr = [
-            # Box(self.screen, self.width, self.height, 20),
-            # Box(self.screen, self.width, self.height, 10),
-            # Box(self.screen, self.width, self.height, (0, 0, 255), 15),
-        ]
-
-
-        self.cart_arr = [
-            Cart(self.height,self.screen)
-        ]
-
+        self.boxes = {
+            "cart": [
+                Cart(self.screen),
+            ],
+            "box": [
+                Hero(self.screen),
+                Enemy(self.screen),
+            ],
+            "moveBox": [
+                MoveBox(self.screen, 20),
+            ],
+        }
 
         # info = pygame.display.Info()
-
-
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
         while True:
             self._check_events()
-            for box in self.box_arr:
+            for box in self.boxes["moveBox"]:
                 box.move_box()
             self._update_screen()
-            
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
     # ================= ИВЕНТЫ КНОПКИ ============================
@@ -59,36 +55,39 @@ class ProgectLavel:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit()
+
                 if event.key == pygame.K_SPACE:
-                    for cart in self.cart_arr:
+                    for cart in self.boxes["cart"]:
                         cart.rect.x += 200
-                    self.cart_arr.append(Cart(self.height,self.screen))
+                    self.boxes["cart"].append(Cart(self.screen))
                 if event.key == pygame.K_BACKSPACE:
-                        self.cart_arr.pop(0)
+                    if len(self.boxes["cart"]) > 0:
+                        self.boxes["cart"].pop(0)
+
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_up = True
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_down = True
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_right = True
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_left = True
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_up = False
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_down = False
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_right = False
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                    for box in self.box_arr:
+                    for box in self.boxes["moveBox"]:
                         box.box_left = False
 
     # ================= //НАЖАТИЕ КНОПКИ// ============================
@@ -98,14 +97,12 @@ class ProgectLavel:
         """ОТРИСОВКА ЭКРАНА"""
         self.screen.fill(self.bgcolor)
 
-        for cart in self.cart_arr: 
-            cart.blit()
+        for boxes in self.boxes.values():
+            for box in boxes:
+                box.blit()
 
-        for box in self.box_arr:
-            box.rectCeate()
         pygame.display.flip()
         self.clock.tick(60)  # limits FPS to 60
-
 
 
 if __name__ == "__main__":

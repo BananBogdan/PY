@@ -3,16 +3,28 @@ import sys
 
 
 class Image:
-    def __init__(self, path) -> None:
+    def __init__(self, path, scale) -> None:
         self.images = []
-        self.image = pygame.image.load(f"{path}/{1}.gif")
-        self.images.append(self.image)
-        # for i in range(0):
+        self.path = path
+        i = 1
+        while True:
+            try:
+                self.image = pygame.image.load(f"{self.path}/{i}.gif")
+            except:
+                break
 
-        # self.loop = 0
+            if scale != ():
+                self.image = pygame.transform.scale(self.image, scale)
+
+            self.images.append(self.image)
+            i += 1
+
+        print(len(self.images))
+
+        self.loop = 0
 
     def get(self):
-        # self.loop += 1           
-        # if self.loop >= 117:
-        #     self.loop = 0
-        return self.images[0]
+        self.loop += 1
+        if self.loop >= len(self.images):
+            self.loop = 0
+        return self.images[self.loop]
