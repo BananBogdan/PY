@@ -4,7 +4,7 @@ from image import *
 
 
 class Box:
-    def __init__(self, screen, img, scale = () ):
+    def __init__(self, screen, img, scale = (300, 300) ):
         self.screen = screen
         self.s_width = screen.get_rect()[2]
         self.s_height = screen.get_rect()[3]
@@ -17,7 +17,7 @@ class Box:
 
 class Hero(Box):
     def __init__(self, screen):
-        super().__init__(screen, "t2x2")
+        super().__init__(screen, "hero")
         self.rect.y = (self.s_height / 2) - (self.rect.height / 2)
         self.rect.x = 200  
 
