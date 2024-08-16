@@ -23,12 +23,13 @@ class ProgectLavel:
         pygame.mouse.set_visible(False)
 
         self.boxes = {
-            "cart": [
-                Cart(self.screen),
-            ],
             "box": [
+                BG(self.screen),
                 Hero(self.screen),
                 Enemy(self.screen),
+            ],
+            "cart": [
+                Cart(self.screen),
             ],
             "moveBox": [
                 MoveBox(self.screen, 20),

@@ -15,6 +15,12 @@ class Box:
         self.screen.blit(self.image.get(), self.rect)
 
 
+class BG(Box):
+    def __init__(self, screen):
+        self.s_width = screen.get_rect()[2]
+        self.s_height = screen.get_rect()[3]
+        super().__init__(screen, "bg", (self.s_width, self.s_height))
+
 class Hero(Box):
     def __init__(self, screen):
         super().__init__(screen, "hero")
