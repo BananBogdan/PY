@@ -27,12 +27,13 @@ class ProgectLavel:
                 BG(self.screen),
                 Hero(self.screen),
                 Enemy(self.screen),
+                HpBar(self.screen),
             ],
             "cart": [
                 Cart(self.screen),
             ],
             "moveBox": [
-                MoveBox(self.screen, 20),
+                #MoveBox(self.screen, 20),
             ],
         }
 

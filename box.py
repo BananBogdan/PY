@@ -21,11 +21,19 @@ class BG(Box):
         self.s_height = screen.get_rect()[3]
         super().__init__(screen, "bg", (self.s_width, self.s_height))
 
+
+class HpBar(Box):
+    def __init__(self, screen, hero):
+        super().__init__(screen, "hp")
+        self.rect.y = hero.rect.top
+        self.rect.x = 200
+
 class Hero(Box):
     def __init__(self, screen):
         super().__init__(screen, "hero")
         self.rect.y = (self.s_height / 2) - (self.rect.height / 2)
-        self.rect.x = 200  
+        self.rect.x = 200
+
 
 class Enemy(Box):
     def __init__(self, screen):
