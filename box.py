@@ -37,10 +37,7 @@ class Hero(Box):
 
 
 class Enemy(Box):
-    def __init__(
-        self,
-        screen,
-    ):
+    def __init__(self, screen):
         super().__init__(screen, "enemy", (300, 300))
         self.rect.y = (self.s_height / 2) - (self.rect.height / 2)
         self.rect.x = self.s_width - (200 + self.rect.width)

@@ -37,10 +37,7 @@ class ProgectLavel:
             "box": [],
         }
 
-        self.boxes["box"].append(HpBar(self.screen, self.boxes["hero"]))
-        self.boxes["box"].append(HpBar(self.screen, self.boxes["enemy"]))
-
-        info = pygame.display.Info()
+        # info = pygame.display.Info()
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
