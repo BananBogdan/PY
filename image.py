@@ -9,7 +9,7 @@ class Image:
         i = 1
         while True:
             try:
-                self.image = pygame.image.load(f"{self.path}/{i}.gif")
+                self.image = pygame.image.load(f"img/{self.path}/{i}.gif")
             except:
                 break
 
