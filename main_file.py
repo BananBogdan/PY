@@ -23,21 +23,24 @@ class ProgectLavel:
         pygame.mouse.set_visible(False)
 
         self.boxes = {
-            "box": [
+            "bg": [
                 BG(self.screen),
-                Hero(self.screen),
-                Enemy(self.screen),
-                HpBar(self.screen),
             ],
+            "hero": Hero(self.screen),
+            "enemy": Enemy(self.screen),
             "cart": [
                 Cart(self.screen),
             ],
             "moveBox": [
-                #MoveBox(self.screen, 20),
+                #'MoveBox': MoveBox(self.screen, 20),
             ],
+            "box": [],
         }
 
-        # info = pygame.display.Info()
+        self.boxes["box"].append(HpBar(self.screen, self.boxes["hero"]))
+        self.boxes["box"].append(HpBar(self.screen, self.boxes["enemy"]))
+
+        info = pygame.display.Info()
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
@@ -100,8 +103,11 @@ class ProgectLavel:
         self.screen.fill(self.bgcolor)
 
         for boxes in self.boxes.values():
-            for box in boxes:
-                box.blit()
+            if type(boxes) == type([]):
+                for box in boxes:
+                    box.blit()
+            else:
+                boxes.blit()
 
         pygame.display.flip()
         self.clock.tick(60)  # limits FPS to 60
