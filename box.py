@@ -23,8 +23,14 @@ class BG(Box):
 
 
 class HpBar(Box):
+    def __init__(self, screen, hero,):
+        super().__init__(screen, "hp_bar")
+        self.rect.y = hero.rect.top - 120
+        self.rect.x = hero.rect.left - 100
+
+class HpBarBorder(Box):
     def __init__(self, screen, hero):
-        super().__init__(screen, "hp")
+        super().__init__(screen, "hp_bar_border")
         self.rect.y = hero.rect.top - 120
         self.rect.x = hero.rect.left - 100
 

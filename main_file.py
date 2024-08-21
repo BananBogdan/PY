@@ -40,6 +40,9 @@ class ProgectLavel:
         self.boxes["box"].append(HpBar(self.screen, self.boxes["hero"]))
         self.boxes["box"].append(HpBar(self.screen, self.boxes["enemy"]))
 
+        self.boxes["box"].append(HpBarBorder(self.screen, self.boxes["hero"]))
+        self.boxes["box"].append(HpBarBorder(self.screen, self.boxes["enemy"]))
+
         info = pygame.display.Info()
 
     def run_game(self):
