@@ -4,7 +4,7 @@ from image import *
 
 
 class Box:
-    def __init__(self, screen, img, scale=()):
+    def __init__(self, screen, img="default", scale=()):
         self.screen = screen
         self.s_width = screen.get_rect()[2]
         self.s_height = screen.get_rect()[3]
@@ -85,9 +85,9 @@ class MoveBox(Box):
         if self.box_left == True and self.rect.x > 0:
             self.rect.x -= self.speed
 
+
 class Focus(Box):
-    def __init__(self, screen, color):
-        super().__init__(screen,"focus",(100, 100))
-        self.color = color
+    def __init__(self, screen):
+        super().__init__(screen, scale=(100, 100))
         self.rect.y = 100
         self.rect.x = 100

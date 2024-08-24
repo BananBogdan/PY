@@ -34,9 +34,7 @@ class ProgectLavel:
             "moveBox": [
                 #'MoveBox': MoveBox(self.screen, 20),
             ],
-            "focus":[
-                Focus(self.screen,(0,255,0))
-            ],
+            "focus": [Focus(self.screen)],
             "hpBar": [],
             "hpBarBorder": [],
             "box": [],
@@ -60,11 +58,11 @@ class ProgectLavel:
             for box in self.boxes["moveBox"]:
                 box.move_box()
             self._update_screen()
+
     def add_cart(self):
         for cart in self.boxes["cart"]:
             cart.rect.x += 200
         self.boxes["cart"].append(Cart(self.screen))
-    
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
     # ================= ИВЕНТЫ КНОПКИ ============================
