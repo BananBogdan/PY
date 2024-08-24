@@ -23,21 +23,28 @@ class BG(Box):
 
 
 class HpBar(Box):
-    def __init__(self, screen, hero,):
-        super().__init__(screen, "hp_bar")
-        self.rect.y = hero.rect.top - 120
-        self.rect.x = hero.rect.left - 100
+    def __init__(self, screen, hero, x, y):
+        super().__init__(screen, "hp_bar", (hero.hp * 3.82, 32))
+        self.rect.x = x + 119
+        self.rect.y = y + 59
+
 
 class HpBarBorder(Box):
     def __init__(self, screen, hero):
         super().__init__(screen, "hp_bar_border")
-        self.rect.y = hero.rect.top - 120
-        self.rect.x = hero.rect.left - 100
+        self.screen = screen
+        self.hero = hero
+        self.rect.y = self.hero.rect.top - 120
+        self.rect.x = self.hero.rect.left - 100
+
+    def hpBar(self):
+        return HpBar(self.screen, self.hero, self.rect.x, self.rect.y)
 
 
 class Hero(Box):
     def __init__(self, screen):
         super().__init__(screen, "hero", (300, 300))
+        self.hp = 75
         self.rect.y = (self.s_height / 2) - (self.rect.height / 2)
         self.rect.x = 200
 
@@ -45,6 +52,7 @@ class Hero(Box):
 class Enemy(Box):
     def __init__(self, screen):
         super().__init__(screen, "enemy", (300, 300))
+        self.hp = 20
         self.rect.y = (self.s_height / 2) - (self.rect.height / 2)
         self.rect.x = self.s_width - (200 + self.rect.width)
 

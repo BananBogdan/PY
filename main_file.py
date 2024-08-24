@@ -34,14 +34,16 @@ class ProgectLavel:
             "moveBox": [
                 #'MoveBox': MoveBox(self.screen, 20),
             ],
+            "hpBar": [],
+            "hpBarBorder": [],
             "box": [],
         }
 
-        self.boxes["box"].append(HpBar(self.screen, self.boxes["hero"]))
-        self.boxes["box"].append(HpBar(self.screen, self.boxes["enemy"]))
+        self.boxes["hpBarBorder"].append(HpBarBorder(self.screen, self.boxes["hero"]))
+        self.boxes["hpBarBorder"].append(HpBarBorder(self.screen, self.boxes["enemy"]))
 
-        self.boxes["box"].append(HpBarBorder(self.screen, self.boxes["hero"]))
-        self.boxes["box"].append(HpBarBorder(self.screen, self.boxes["enemy"]))
+        for border in self.boxes["hpBarBorder"]:
+            self.boxes["hpBar"].append(border.hpBar())
 
         info = pygame.display.Info()
 
@@ -71,7 +73,6 @@ class ProgectLavel:
                 if event.key == pygame.K_BACKSPACE:
                     if len(self.boxes["cart"]) > 0:
                         self.boxes["cart"].pop(0)
-
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.boxes["moveBox"]:
                         box.box_up = True
