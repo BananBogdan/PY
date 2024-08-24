@@ -28,13 +28,13 @@ class ProgectLavel:
             ],
             "hero": Hero(self.screen),
             "enemy": Enemy(self.screen),
+            "focus": [Focus(self.screen)],
             "cart": [
                 Cart(self.screen),
             ],
             "moveBox": [
                 #'MoveBox': MoveBox(self.screen, 20),
             ],
-            "focus": [Focus(self.screen)],
             "hpBar": [],
             "hpBarBorder": [],
             "box": [],
