@@ -84,3 +84,10 @@ class MoveBox(Box):
             self.rect.x += self.speed
         if self.box_left == True and self.rect.x > 0:
             self.rect.x -= self.speed
+
+class Focus(Box):
+    def __init__(self, screen, color):
+        super().__init__(screen,"focus",(100, 100))
+        self.color = color
+        self.rect.y = 100
+        self.rect.x = 100

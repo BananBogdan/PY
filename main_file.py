@@ -34,6 +34,9 @@ class ProgectLavel:
             "moveBox": [
                 #'MoveBox': MoveBox(self.screen, 20),
             ],
+            "focus":[
+                Focus(self.screen,(0,255,0))
+            ],
             "hpBar": [],
             "hpBarBorder": [],
             "box": [],
@@ -47,6 +50,9 @@ class ProgectLavel:
 
         info = pygame.display.Info()
 
+        for i in range(4):
+            self.add_cart()
+
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
         while True:
@@ -54,6 +60,11 @@ class ProgectLavel:
             for box in self.boxes["moveBox"]:
                 box.move_box()
             self._update_screen()
+    def add_cart(self):
+        for cart in self.boxes["cart"]:
+            cart.rect.x += 200
+        self.boxes["cart"].append(Cart(self.screen))
+    
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
     # ================= ИВЕНТЫ КНОПКИ ============================
@@ -66,13 +77,13 @@ class ProgectLavel:
                 if event.key == pygame.K_ESCAPE:
                     sys.exit()
 
-                if event.key == pygame.K_SPACE:
-                    for cart in self.boxes["cart"]:
-                        cart.rect.x += 200
-                    self.boxes["cart"].append(Cart(self.screen))
-                if event.key == pygame.K_BACKSPACE:
-                    if len(self.boxes["cart"]) > 0:
-                        self.boxes["cart"].pop(0)
+                # if event.key == pygame.K_SPACE:
+                #     for cart in self.boxes["cart"]:
+                #         cart.rect.x += 200
+                #     self.boxes["cart"].append(Cart(self.screen))
+                # # if event.key == pygame.K_BACKSPACE:
+                #     if len(self.boxes["cart"]) > 0:
+                #         self.boxes["cart"].pop(0)
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     for box in self.boxes["moveBox"]:
                         box.box_up = True
