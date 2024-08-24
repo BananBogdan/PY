@@ -88,6 +88,6 @@ class MoveBox(Box):
 
 class Focus(Box):
     def __init__(self, screen):
-        super().__init__(screen, scale=(202, 302))
-        self.rect.y = self.s_height - 300
-        self.rect.x = 300
+        super().__init__(screen, scale=(206, 306))
+        self.rect.y = self.s_height - 300 - 3
+        self.rect.x = 300 - 3
