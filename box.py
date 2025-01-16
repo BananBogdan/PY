@@ -59,14 +59,14 @@ class Enemy(Box):
 
 class Cart(Box):
     def __init__(self, screen):
-        super().__init__(screen, "cart", (200, 300))
+        super().__init__(screen, "isaac", (350, 300))
         self.rect.y = self.s_height - 300
         self.rect.x = 300
 
 
 class MoveBox(Box):
     def __init__(self, screen, speed):
-        super().__init__(screen, "cart", (200, 300))
+        super().__init__(screen, "isaac", (350, 300))
         self.speed = speed
         self.box_up = False
         self.box_down = False

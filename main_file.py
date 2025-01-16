@@ -25,31 +25,31 @@ class ProgectLavel:
         self.boxes = {
             "bg": [
                 BG(self.screen),
-            ],
-            "hero": Hero(self.screen),
-            "enemy": Enemy(self.screen),
-            "focus": [Focus(self.screen)],
-            "cart": [
-                Cart(self.screen),
-            ],
-            "moveBox": [
-                #'MoveBox': MoveBox(self.screen, 20),
-            ],
-            "hpBar": [],
-            "hpBarBorder": [],
-            "box": [],
-        }
+             ],
+        #     "hero": Hero(self.screen),
+        #     "enemy": Enemy(self.screen),
+        #     "focus": [Focus(self.screen)],
+        #     "cart": [
+        #         Cart(self.screen),
+        #    ],
+             "moveBox": [
+                     MoveBox(self.screen, 20),
+             ],
+        #     "hpBar": [],
+        #     "hpBarBorder": [],
+             "box": [],
+         }
 
-        self.boxes["hpBarBorder"].append(HpBarBorder(self.screen, self.boxes["hero"]))
-        self.boxes["hpBarBorder"].append(HpBarBorder(self.screen, self.boxes["enemy"]))
+        # self.boxes["hpBarBorder"].append(HpBarBorder(self.screen, self.boxes["hero"]))
+        # self.boxes["hpBarBorder"].append(HpBarBorder(self.screen, self.boxes["enemy"]))
 
-        for border in self.boxes["hpBarBorder"]:
-            self.boxes["hpBar"].append(border.hpBar())
+        # for border in self.boxes["hpBarBorder"]:
+        #     self.boxes["hpBar"].append(border.hpBar())
 
         info = pygame.display.Info()
 
-        for i in range(4):
-            self.add_cart()
+        # for i in range(4):
+        #     self.add_cart()
 
     def run_game(self):
         """ОСНОВНОЙ ЦИКЛ"""
@@ -59,10 +59,10 @@ class ProgectLavel:
                 box.move_box()
             self._update_screen()
 
-    def add_cart(self):
-        for cart in self.boxes["cart"]:
-            cart.rect.x += 200
-        self.boxes["cart"].append(Cart(self.screen))
+    # def add_cart(self):
+    #     for cart in self.boxes["cart"]:
+    #         cart.rect.x += 200
+    #     self.boxes["cart"].append(Cart(self.screen))
 
     # /////////////////////////////////////////////////////////////// ДАЛЕЕ МОДУЛИ "RUN_GAME" //////////////////////////////////////////
     # ================= ИВЕНТЫ КНОПКИ ============================
